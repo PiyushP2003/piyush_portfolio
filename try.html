@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Interaction Page</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Page</h1>
+    </header>
+
+    <main>
+        <h2>Date and Time</h2>
+        <div id="dateTimeDisplay"></div>
+
+        <h2>User Interaction</h2>
+        <div id="userGreeting"></div>
+        <form id="userForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required><br><br>
+
+            <label for="mood">How are you feeling?</label>
+            <input type="text" id="mood" required><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+
+        <h2>Favorite Number</h2>
+        <form id="numberForm">
+            <label for="favoriteNumber">Enter your favorite number between 0-10:</label>
+            <input type="number" id="favoriteNumber" min="0" max="10" step="1" required><br><br>
+            <button id="generatePolygonBtn">Generate favorite polygon</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Patil Enterprises</p>
+    </footer>
+    
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const formattedDate = `${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} on ${now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}`;
+            document.getElementById("dateTimeDisplay").textContent = formattedDate;
+        }
+
+        updateDateTime();
+
+        setInterval(updateDateTime, 1000);
+
+        document.getElementById("userForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const userName = document.getElementById("name").value;
+            const userMood = document.getElementById("mood").value;
+            const greeting = `The Patil Enterprises welcomes you, ${userName}!<br>We're glad you are doing ${userMood}!`;
+            document.getElementById("userGreeting").innerHTML = greeting;
+        });
+
+        document.getElementById("numberForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Get the favorite number from the user
+    const favoriteNumber = Math.abs(parseInt(document.getElementById("favoriteNumber").value)); // Get the absolute value of the number
+
+    // Determine the name of the polygon based on the favorite number
+    let polygonName;
+    if (favoriteNumber === 0) {
+        polygonName = "Point";
+    } else if (favoriteNumber === 1) {
+        polygonName = "Monogon";
+    } else if (favoriteNumber === 2) {
+        polygonName = "Digon";
+    } else if (favoriteNumber === 3) {
+        polygonName = "Trigon";
+    } else if (favoriteNumber === 4) {
+        polygonName = "Tetragon";
+    } else if (favoriteNumber === 5) {
+        polygonName = "Pentagon";
+    } else if (favoriteNumber === 6) {
+        polygonName = "Hexagon";
+    } else if (favoriteNumber === 7) {
+        polygonName = "Heptagon";
+    } else if (favoriteNumber === 8) {
+        polygonName = "Octagon";
+    } else if (favoriteNumber === 9) {
+        polygonName = "Nonagon";
+    } else if (favoriteNumber === 10) {
+        polygonName = "Decagon";
+    } else {
+        polygonName = "Polygon with more than 10 sides";
+    }
+    alert(`Your favorite polygon is a ${polygonName}.`);
+});
+    </script>
+</body>
+</html>

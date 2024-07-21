@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <link rel="stylesheet" href="styles/default.css">
+    <script src="https://farawayforests.com/cdn/accumulus/accumulus.min.js"></script>
+
+</head>
+<body>
+    <header>
+        <div data-include="components\header.html"></div>
+    </header>
+    <main>
+        <h2>Employee Management</h2>
+        <form id="employeeForm">
+            <label for="employeeName">Employee Name:</label>
+            <input type="text" id="employeeName" name="employeeName">
+            <label for="employeeSalary">Employee Salary:</label>
+            <input type="text" id="employeeSalary" name="employeeSalary">
+            <button id="addEmployeeBtn" type="button">Add Employee</button>
+        </form>
+
+        <form id="modifySalaryForm">
+            <label for="employeeSelect">Select Employee:</label>
+            <select id="employeeSelect">
+                <option value="">-- Select Employee --</option>
+               
+            </select>
+            <label for="newSalary">New Salary:</label>
+            <input type="text" id="newSalary" name="newSalary">
+            <button id="modifySalaryBtn" type="button">Modify Salary</button>
+        </form>
+
+        <button id="displayResultsBtn">Display Results</button>
+        <button id="displaySalaryBtn">Display Salary</button>
+
+        <div id="results"></div>
+        <table id="results_table">
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </main>
+    <footer>
+        <div data-include="components/footer.html"></div>
+    </footer>
+
+    <script src="scripts/HTMLInclude.min.js"></script>
+    <script src="scripts/arrays.js"></script>
+</body>
+</html>
